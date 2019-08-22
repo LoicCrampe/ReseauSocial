@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 public class ReseauSocial implements java.io.Serializable
@@ -179,7 +180,31 @@ public class ReseauSocial implements java.io.Serializable
 
     public static void main ( String args [] )
     {
-        (new ReseauSocial ()).afficher ();
+//        (new ReseauSocial ()).afficher ();
+        ReseauSocial reseauSocial = new ReseauSocial();
+        StreamFile.write("reseauSocial.ser", reseauSocial);
+        StreamFile.write("membres.ser", reseauSocial.membres);
+        StreamFile.write("sports.ser", reseauSocial.sports);
+        StreamFile.write("clubs.ser", reseauSocial.clubs);
+
+        ReseauSocial result = (ReseauSocial) StreamFile.read("reseauSocial.ser");
+        if (result != null) {
+            result.afficher();
+        }
+    }
+
+    private void writeObject (ObjectOutputStream out) throws IOException
+    {
+        out.writeObject(membres);
+        out.writeObject(sports);
+        out.writeObject(clubs);
+    }
+
+    private void readObject (ObjectInputStream in) throws IOException, ClassNotFoundException
+    {
+        this.membres = (Vector<Personne>) in.readObject();
+        this.sports = (Vector<Sport>) in.readObject();
+        this.clubs = (Vector<Club>) in.readObject();
     }
 }
 

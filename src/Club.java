@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 public class Club extends Profil implements java.io.Serializable
@@ -54,6 +55,18 @@ public class Club extends Profil implements java.io.Serializable
             System.out.println(" - " + sportPratiquesParLesAdherantsDuClub.get(entry.getValue().getNom()));
         }
 
+    }
+
+    private void writeObject (ObjectOutputStream out) throws IOException
+    {
+        out.writeUTF(nom);
+        out.writeObject(adherants);
+    }
+
+    private void readObject (ObjectInputStream in) throws IOException, ClassNotFoundException
+    {
+        this.nom = in.readUTF();
+        this.adherants = (Hashtable<String, Personne>) in.readObject();
     }
 
 }

@@ -75,10 +75,18 @@ public class Personne extends Profil implements java.io.Serializable
     private void writeObject (ObjectOutputStream out) throws IOException
     {
         out.writeUTF(nom);
+        out.writeUTF(prenom);
+        out.writeInt(age);
+        out.writeObject(sports);
+        out.writeObject(clubs);
     }
 
-    private void readObject (ObjectOutputStream in) throws IOException
+    private void readObject (ObjectInputStream in) throws IOException, ClassNotFoundException
     {
-
+        this.nom = in.readUTF();
+        this.prenom = in.readUTF();
+        this.age = in.readInt();
+        this.sports = (Hashtable<String, Sport>) in.readObject();
+        this.clubs = (Hashtable<String, Club>) in.readObject();
     }
 }

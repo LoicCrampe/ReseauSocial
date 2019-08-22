@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 public class Sport implements java.io.Serializable
@@ -48,5 +49,17 @@ public class Sport implements java.io.Serializable
    {
     return nom;
    }
+
+  private void writeObject (ObjectOutputStream out) throws IOException
+  {
+   out.writeUTF(nom);
+   out.writeObject(pratiquants);
+  }
+
+  private void readObject (ObjectInputStream in) throws IOException, ClassNotFoundException
+  {
+   this.nom = in.readUTF();
+   this.pratiquants = (Hashtable<String, Personne>) in.readObject();
+  }
 
  }

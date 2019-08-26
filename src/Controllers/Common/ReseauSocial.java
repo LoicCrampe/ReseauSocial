@@ -1,3 +1,9 @@
+package Controllers.Common;
+
+import Controllers.InterfaceGraphique.InterfaceGraphique;
+import Controllers.StreamFile;
+
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -29,12 +35,12 @@ public class ReseauSocial implements java.io.Serializable
 
     public void addSport ( String _nom )
     {
-        sports.add ( new Sport ( _nom ) );
+        sports.add ( new Sport( _nom ) );
     }
 
     public void addClub ( String _nom )
     {
-        clubs.add ( new Club ( id++ , _nom ) );
+        clubs.add ( new Club( id++ , _nom ) );
     }
 
     public void addLienMembreSport ( int _rangMembre , int _rangSport )
@@ -180,7 +186,11 @@ public class ReseauSocial implements java.io.Serializable
 
     public static void main ( String args [] )
     {
-//        (new ReseauSocial ()).afficher ();
+        InterfaceGraphique fenetre = new InterfaceGraphique();
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        (new Controllers.Common.ReseauSocial ()).afficher ();
+
         ReseauSocial reseauSocial = new ReseauSocial();
         StreamFile.write("reseauSocial.ser", reseauSocial);
         StreamFile.write("membres.ser", reseauSocial.membres);
@@ -202,9 +212,13 @@ public class ReseauSocial implements java.io.Serializable
 
     private void readObject (ObjectInputStream in) throws IOException, ClassNotFoundException
     {
-        this.membres = (Vector<Personne>) in.readObject();
-        this.sports = (Vector<Sport>) in.readObject();
-        this.clubs = (Vector<Club>) in.readObject();
+        this.membres    = (Vector<Personne>) in.readObject();
+        this.sports     = (Vector<Sport>) in.readObject();
+        this.clubs      = (Vector<Club>) in.readObject();
+    }
+
+    public Vector<Personne> getMembres(){
+        return membres;
     }
 }
 

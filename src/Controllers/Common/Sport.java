@@ -1,3 +1,7 @@
+package Controllers.Common;
+
+import Controllers.Common.Personne;
+
 import java.io.*;
 import java.util.*;
 

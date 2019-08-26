@@ -1,3 +1,5 @@
+package Controllers;
+
 import java.io.*;
 import java.net.*;
 
@@ -7,7 +9,7 @@ public class EchoClient
    {
     if (args.length != 2) 
      {
-      System.err.println ( "Usage: java EchoClient <host name> <port number>" );
+      System.err.println ( "Usage: java Controllers.EchoClient <host name> <port number>" );
       System.exit(1);
      }
 

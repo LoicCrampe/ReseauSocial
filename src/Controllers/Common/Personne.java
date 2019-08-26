@@ -1,3 +1,5 @@
+package Controllers.Common;
+
 import java.io.*;
 import java.util.*;
 
@@ -68,8 +70,32 @@ public class Personne extends Profil implements java.io.Serializable
         return nom;
     }
 
+    public void setNom(String _nom){
+        this.nom = _nom;
+    }
+
+    public String getPrenom() {
+    return prenom;
+}
+
+    public void setPrenom(String _prenom){
+        this.prenom = _prenom;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int _age){
+        this.age = _age;
+    }
+
     public Hashtable<String, Sport> getSports() {
         return sports;
+    }
+
+    public Hashtable<String, Club> getClubs() {
+        return clubs;
     }
 
     private void writeObject (ObjectOutputStream out) throws IOException

@@ -1,3 +1,5 @@
+package Controllers.Common;
+
 public class Profil implements java.io.Serializable
  {
   protected int id;
@@ -9,6 +11,6 @@ public class Profil implements java.io.Serializable
 
   public void afficher ()
    {
-    System.out.println ("Profil numero " + id);
+    System.out.println ("Controllers.Common.Profil numero " + id);
    }
  }

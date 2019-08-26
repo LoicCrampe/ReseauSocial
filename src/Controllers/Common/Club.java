@@ -1,3 +1,9 @@
+package Controllers.Common;
+
+import Controllers.Common.Personne;
+import Controllers.Common.Profil;
+import Controllers.Common.Sport;
+
 import java.io.*;
 import java.util.*;
 

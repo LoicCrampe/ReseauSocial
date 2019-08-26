@@ -1,4 +1,4 @@
-// https://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoServer.java
+package Controllers;// https://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoServer.java
 // Voir https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 
 import java.net.*;
@@ -10,7 +10,7 @@ public class EchoServer
    {
     if (args.length != 1) 
      {
-      System.err.println("Usage: java EchoServer <port number>");
+      System.err.println("Usage: java Controllers.EchoServer <port number>");
       System.exit(1);
      }
          

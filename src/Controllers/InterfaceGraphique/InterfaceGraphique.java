@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class InterfaceGraphique extends JFrame implements ActionListener {
+public class InterfaceGraphique extends JFrame implements ActionListener, java.io.Serializable {
     JMenuItem choix1;
     JMenuItem choix2;
     JMenuItem choix3;

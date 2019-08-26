@@ -5,15 +5,16 @@ import Controllers.Common.Personne;
 import Controllers.Common.ReseauSocial;
 import Controllers.Common.Sport;
 import Controllers.InterfaceGraphique.Membres;
+import Controllers.StreamFile;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-public class ModeleStatique extends AbstractTableModel {
+public class ModeleStatique extends AbstractTableModel implements java.io.Serializable {
 
-    private final List<Membres> membres = new ArrayList<Membres>();
+    public static final List<Membres> membres = new ArrayList<Membres>();
 
     ReseauSocial reseauSocial = new ReseauSocial();
     Vector<Personne> allMembres = reseauSocial.getMembres();
@@ -22,11 +23,11 @@ public class ModeleStatique extends AbstractTableModel {
 
     public ModeleStatique() {
         super();
-
-        membres.add(new Membres("Alain", "Terrieur", 44));
-        membres.add(new Membres("Marc", "Assin", 32));
-        membres.add(new Membres("Alex", "Terrieur", 44));
-        membres.add(new Membres("Sarah", "Croche", 44));
+//
+//        membres.add(new Membres("Alain", "Terrieur", 44));
+//        membres.add(new Membres("Marc", "Assin", 32));
+//        membres.add(new Membres("Alex", "Terrieur", 44));
+//        membres.add(new Membres("Sarah", "Croche", 44));
         }
 
 
@@ -84,6 +85,7 @@ public class ModeleStatique extends AbstractTableModel {
         membres.add(membre);
 
         fireTableRowsInserted(membres.size() -1, membres.size() -1);
+        StreamFile.write("membres.ser", (java.awt.List) membres);
     }
 
     public void removeAmi(int rowIndex) {

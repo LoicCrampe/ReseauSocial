@@ -4,14 +4,16 @@ import Controllers.Common.ReseauSocial;
 
 import Controllers.InterfaceGraphique.InterfaceGraphique;
 import Controllers.InterfaceGraphique.Membres;
+import Controllers.StreamFile;
 
 import java.awt.*;
+import java.awt.List;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
 
-public class ListeMembres extends JDialog implements ActionListener {
+public class ListeMembres extends JDialog implements ActionListener, java.io.Serializable {
 
     private ModeleStatique modele = new ModeleStatique();
     private JTable tableau;
@@ -20,7 +22,6 @@ public class ListeMembres extends JDialog implements ActionListener {
     private JButton                         supprimer;
     private JButton                         ajouter;
     private JButton                         fermer;
-
 
 
     public ListeMembres (InterfaceGraphique _interfaceGraphique) {

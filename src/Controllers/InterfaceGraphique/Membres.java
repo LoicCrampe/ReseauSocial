@@ -4,14 +4,14 @@ import Controllers.Common.Club;
 import Controllers.Common.Sport;
 
 import java.util.Hashtable;
-import java.util.Vector;
 
-public class Membres {
-    private String          nom;
-    private String          prenom;
-    private int             age;
-    private Hashtable<String, Sport> sports;
-    private Hashtable<String, Club> clubs;
+public class Membres implements java.io.Serializable
+{
+    private String                      nom;
+    private String                      prenom;
+    private int                         age;
+    private Hashtable<String, Sport>    sports;
+    private Hashtable<String, Club>     clubs;
 
     public Membres(String prenom, String nom, int age) {
         super();

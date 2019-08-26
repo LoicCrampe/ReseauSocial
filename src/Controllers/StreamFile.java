@@ -1,10 +1,12 @@
 package Controllers;
 
+import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class StreamFile {
 
-    public static void write(String _file, Object _object) {
+    public static void write(String _file, List _object) {
         try {
             FileOutputStream fichier = new FileOutputStream(_file);
             ObjectOutputStream oos = new ObjectOutputStream(fichier);

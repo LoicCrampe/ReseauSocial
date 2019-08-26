@@ -186,21 +186,31 @@ public class ReseauSocial implements java.io.Serializable
 
     public static void main ( String args [] )
     {
+        try
+        {
+            BDD baseDeDonnees = new BDD ();
+        }
+        catch (Exception e)
+        {
+            System.err.println (e.getMessage());
+        }
+
         InterfaceGraphique fenetre = new InterfaceGraphique();
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //        (new Controllers.Common.ReseauSocial ()).afficher ();
+//
+//        ReseauSocial reseauSocial = new ReseauSocial();
+//        StreamFile.write("reseauSocial.ser", reseauSocial);
+//        StreamFile.write("membres.ser", reseauSocial.membres);
+//        StreamFile.write("sports.ser", reseauSocial.sports);
+//        StreamFile.write("clubs.ser", reseauSocial.clubs);
 
-        ReseauSocial reseauSocial = new ReseauSocial();
-        StreamFile.write("reseauSocial.ser", reseauSocial);
-        StreamFile.write("membres.ser", reseauSocial.membres);
-        StreamFile.write("sports.ser", reseauSocial.sports);
-        StreamFile.write("clubs.ser", reseauSocial.clubs);
+//        ReseauSocial result = (ReseauSocial) StreamFile.read("reseauSocial.ser");
+//        if (result != null) {
+//            result.afficher();
+//        }
 
-        ReseauSocial result = (ReseauSocial) StreamFile.read("reseauSocial.ser");
-        if (result != null) {
-            result.afficher();
-        }
     }
 
     private void writeObject (ObjectOutputStream out) throws IOException
